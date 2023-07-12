@@ -40,7 +40,7 @@ test {
     useJUnitPlatform()
 }
 
-task registrationForm_test(type: Test) {
+task x5mainPageTest(type: Test) {
     useJUnitPlatform {
         includeTags("x5mainPageTest")
     }
