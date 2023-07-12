@@ -1,7 +1,6 @@
 package x5MainPage;
 
 import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -15,7 +14,6 @@ import java.util.stream.Stream;
 
 import static com.codeborne.selenide.Condition.empty;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
@@ -41,9 +39,9 @@ public class MainPageTest extends TestBase {
                         "Press Centre")));
     }
 
-    @DisplayName("Company tab title test")
+    @DisplayName("Company tab titles check")
     @Test
-    @Tag("Company tab title")
+    @Tag("Company tab check")
     public void theCompanyTabContent() {
         step("Open main page", () -> open(""));
         step("Open company tab", () -> mainPage.clickOnText("Компания"));

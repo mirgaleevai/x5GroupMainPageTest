@@ -15,16 +15,16 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-//        Configuration.remote = System.getProperty("remoteBrowser", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
-//        Configuration.baseUrl = System.getProperty("url", "https://www.x5.ru/ru/");
-//        Configuration.browser = System.getProperty("browser", "chrome");
-//        Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
-//        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+        Configuration.remote = System.getProperty("remoteBrowser", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        Configuration.baseUrl = System.getProperty("url", "https://www.x5.ru/ru/");
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
 
-        SelenideLogger.addListener("allure", new AllureSelenide());
-        Configuration.baseUrl = "https://www.x5.ru/ru/";
-        Configuration.browserSize = "1920x1080";
-        Configuration.pageLoadStrategy = "eager";
+//        SelenideLogger.addListener("allure", new AllureSelenide());
+//        Configuration.baseUrl = "https://www.x5.ru/ru/";
+//        Configuration.browserSize = "1920x1080";
+//        Configuration.pageLoadStrategy = "eager";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.of(
