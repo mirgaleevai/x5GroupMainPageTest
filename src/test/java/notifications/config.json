@@ -1,0 +1,17 @@
+{
+  "base": {
+    "logo": "",
+    "project": "X5Test",
+    "environment": "Test",
+    "comment": "@hellofromtheotherside",
+    "reportLink": "",
+    "language": "en",
+    "allureFolder": "/allureReport",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "5440032253:AAHK7CahJvEZ78T2WjnPo7w-tugy9vavlCE",
+    "chat": "-1001913468644",
+    "replyTo": ""
+  }
+}
