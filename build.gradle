@@ -39,3 +39,9 @@ tasks.withType(JavaCompile) {
 test {
     useJUnitPlatform()
 }
+
+task registrationForm_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("x5mainPageTest")
+    }
+}
