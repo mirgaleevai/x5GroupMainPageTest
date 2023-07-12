@@ -21,7 +21,7 @@ public class TestBase {
         Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
 
-//        SelenideLogger.addListener("allure", new AllureSelenide());
+//cfg for local launches
 //        Configuration.baseUrl = "https://www.x5.ru/ru/";
 //        Configuration.browserSize = "1920x1080";
 //        Configuration.pageLoadStrategy = "eager";

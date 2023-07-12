@@ -12,7 +12,6 @@ import pages.MainPage;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static com.codeborne.selenide.Condition.empty;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
@@ -39,7 +38,7 @@ public class MainPageTest extends TestBase {
                         "Investors\n" +
                         "Press Centre")));
     }
-
+//to-do > hide to mainpage.java
     @DisplayName("Company tab titles check")
     @Test
     @Tag("Company tab check")
@@ -52,7 +51,6 @@ public class MainPageTest extends TestBase {
         step("Check header content", () -> $(".key-numbers").shouldHave(text("Ключевые цифры")));
         step("Check investors content exists", () -> $(".strategy__header").scrollIntoView(true));
         step("Check header content", () -> $(".strategy__header").shouldHave(text("Стратегия")));
-        sleep(5000);
     }
 
     @DisplayName("Consumer tab title check")
@@ -60,46 +58,29 @@ public class MainPageTest extends TestBase {
     @Tag("Consumer tab title")
     public void theConsumerTabContent() {
         step("Open main page", () -> open(""));
-        step("Open сonsumer tab", () -> mainPage.clickOnText("Покупателю"));
+        step("Open consumer tab", () -> mainPage.clickOnText("Покупателю"));
         step("Check header content", () -> mainPage.titleCheck("X5 для покупателя"));
     }
 
 
-    @DisplayName("For Partners tab content check")
-    @Tag("For Partners tab content")
-    @ParameterizedTest
-    @MethodSource
-    public void forPartnersTabContent(List<String> items) {
+    @DisplayName("Check address on page")
+    @Tag("Address view on page")
+    @Test
+    public void viewAddressOnPage() {
         step("Open main page", () -> open(""));
-        step("Open partners tab", () -> mainPage.clickOnText("Партнерам"));
-        step("Check header content", () -> mainPage.titleCheck("Партнерам"));
-        step("Open partners tab", () -> mainPage.clickOnText("Подробнее"));
-        step("Check navigation items", () -> $$(".aside__nav").should(CollectionCondition.texts(items)));
+        step("Scroll to address", () -> mainPage.scrollToFooter());
+        step("Check address value", () -> mainPage.footerAddressCheck("119049, Россия, г. Москва, улица Коровий Вал, 5, стр. 1"));
     }
-    static Stream<Arguments> forPartnersTabContent() {
-        return Stream.of(
-                Arguments.of(List.of("Добросовестное партнёрство\n" +
-                        "Поставщикам\n" +
-                        "Сервисы для поставщиков\n" +
-                        "Маркетинговые возможности\n" +
-                        "Стать франчайзи\n" +
-                        "X5 Transport\n" +
-                        "Операции с недвижимостью\n" +
-                        "X5 Import\n" +
-                        "X5 Ready Food\n" +
-                        "Закупки для собственных нужд X5 Group")));
-    }
-
 
     @DisplayName("Search field test")
     @Tag("Search field")
     @Test
     public void searchFieldCheck() {
         step("Open main page", () -> open(""));
-        step("Click search icon", () -> $(".header-search__search-btn").click());
-        step("Set value in search field", () -> $("#search-term-header").sendKeys("Новости"));
+        step("Click search icon", () -> mainPage.searchIconClick());
+        step("Set value in search field", () -> mainPage.setValueOnSearchField("Новости"));
         step("Click search button", () -> mainPage.clickOnText("Найти"));
-        step("Check title", () -> $(".search-results-header__title").shouldHave(text("Результаты поиска")));
-        step("Check result", () -> $(".search-results__content-section").shouldNotBe(empty));
+        step("Check title", () -> mainPage.checkTitleOnSearchResult("Результаты поиска"));
+        step("Check result", () -> mainPage.searchResultIsNotEmpty());
     }
 }
