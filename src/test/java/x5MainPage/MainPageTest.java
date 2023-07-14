@@ -12,9 +12,9 @@ import pages.MainPage;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
+
 @Tag("x5mainPageTest")
 public class MainPageTest extends TestBase {
 
@@ -38,19 +38,19 @@ public class MainPageTest extends TestBase {
                         "Investors\n" +
                         "Press Centre")));
     }
-//to-do > hide to mainpage.java
+
     @DisplayName("Company tab titles check")
     @Test
-    @Tag("Company tab check")
+    @Tag("Company tab titles")
     public void theCompanyTabContent() {
         step("Open main page", () -> open(""));
         step("Open company tab", () -> mainPage.clickOnText("Компания"));
-        step("Check investors content exists", () -> $(".for-investors").scrollIntoView(true));
-        step("Check header content", () -> $(".for-investors").shouldHave(text("Инвесторам")));
-        step("Check investors content exists", () -> $(".key-numbers").scrollIntoView(true));
-        step("Check header content", () -> $(".key-numbers").shouldHave(text("Ключевые цифры")));
-        step("Check investors content exists", () -> $(".strategy__header").scrollIntoView(true));
-        step("Check header content", () -> $(".strategy__header").shouldHave(text("Стратегия")));
+        step("Check investors content exists", () -> mainPage.scrollToForInvestorsContent());
+        step("Check header content", () -> mainPage.forInvestorsContentHeaderValue("Инвесторам"));
+        step("Check key numbers content exists", () -> mainPage.scrollToKeyNumbersSection());
+        step("Check header content", () -> mainPage.keyNumbersSectionContentHeaderValue("Ключевые цифры"));
+        step("Check strategy content exists", () -> mainPage.scrollToStrategySection());
+        step("Check header content", () -> mainPage.strategySectionHeaderValue("Стратегия"));
     }
 
     @DisplayName("Consumer tab title check")

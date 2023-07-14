@@ -21,11 +21,13 @@ public class TestBase {
         Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
 
-//cfg for local launches
-//        Configuration.baseUrl = "https://www.x5.ru/ru/";
-//        Configuration.browserSize = "1920x1080";
-//        Configuration.pageLoadStrategy = "eager";
+/*
+cfg for local launches
 
+        Configuration.baseUrl = "https://www.x5.ru/ru/";
+        Configuration.browserSize = "1920x1080";
+        Configuration.pageLoadStrategy = "eager";
+*/
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.of(
                 "enableVNC", true,

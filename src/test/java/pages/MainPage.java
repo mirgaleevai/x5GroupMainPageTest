@@ -17,8 +17,10 @@ public class MainPage {
             searchField = $("#search-term-header"),
             searchResultTitle = $(".search-results-header__title"),
             searchResults = $(".search-results__content-section"),
-            footerPosition = $(".footer__top");
-
+            footerPosition = $(".footer__top"),
+            forInvestorsSection = $(".for-investors"),
+            keyNumbersSection = $(".key-numbers"),
+            strategySectionHeader = $(".strategy__header");
 
 
     public MainPage clickSwitchLanguageIcon() {
@@ -68,6 +70,43 @@ public class MainPage {
         return this;
 
     }
+
+    public MainPage scrollToForInvestorsContent() {
+        forInvestorsSection.scrollIntoView(true);
+        return this;
+
+    }
+
+    public MainPage forInvestorsContentHeaderValue(String value) {
+        forInvestorsSection.shouldHave(text(value));
+        return this;
+
+    }
+
+    public MainPage scrollToStrategySection() {
+        strategySectionHeader.scrollIntoView(true);
+        return this;
+
+    }
+
+    public MainPage strategySectionHeaderValue(String value) {
+        strategySectionHeader.shouldHave(text(value));
+        return this;
+
+    }
+
+    public MainPage scrollToKeyNumbersSection() {
+        keyNumbersSection.scrollIntoView(true);
+        return this;
+
+    }
+
+    public MainPage keyNumbersSectionContentHeaderValue(String value) {
+        keyNumbersSection.shouldHave(text(value));
+        return this;
+
+    }
+
 
     public MainPage clickOnText(String tab) {
         $(byText(tab)).click();
