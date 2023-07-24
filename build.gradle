@@ -28,16 +28,24 @@ dependencies {
     testImplementation(
             'org.junit.jupiter:junit-jupiter:5.9.3',
             'com.codeborne:selenide:6.15.0',
-            'io.qameta.allure:allure-selenide:2.22.0'
+            'io.qameta.allure:allure-selenide:2.22.0',
+            'org.aeonbits.owner:owner:1.0.4'
     )
 }
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
-
-test {
+tasks.withType(Test) {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
 }
 
 task x5mainPageTest(type: Test) {
