@@ -1,4 +1,4 @@
-package x5MainPage;
+package x5mainpage;
 
 import com.codeborne.selenide.CollectionCondition;
 import org.junit.jupiter.api.DisplayName;

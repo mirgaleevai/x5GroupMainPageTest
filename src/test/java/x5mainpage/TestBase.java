@@ -1,4 +1,4 @@
-package x5MainPage;
+package x5mainpage;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -19,6 +19,7 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
+        Configuration.pageLoadStrategy = "eager";
         Configuration.browser = config.getBrowser();
         Configuration.baseUrl = config.getBaseUrl();
         Configuration.browserVersion = config.getBrowserVersion();
