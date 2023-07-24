@@ -16,7 +16,10 @@
 
 ### Запуск из терминала
 ```
-gradle clean x5mainPageTest 
+gradle clean test -Denv=local  - локальный запуск
+```
+```
+gradle clean test -Denv=remote - удаленный запуск
 ```
 
 ## <img src="mediaFiles/icons/Jenkins.svg" title="Jenkins" width="4%"/> Jenkins
